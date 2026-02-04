@@ -16,7 +16,6 @@ class Statement(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     
-    # Campo para guardar erros ou feedback da IA se falhar
     error_log = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -31,7 +30,6 @@ class Transaction(models.Model):
     date = models.DateField()
     category = models.CharField(max_length=100, default="Outros")
     
-    # Armazena os dados crus que a IA retornou, para debug futuro
     raw_ai_data = models.JSONField(null=True, blank=True)
     
     created_at = models.DateTimeField(auto_now_add=True)
