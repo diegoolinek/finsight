@@ -1,0 +1,13 @@
+Django>=5.0,<5.1
+djangorestframework
+django-cors-headers
+psycopg2-binary
+python-dotenv
+celery
+redis
+pandas
+google-generativeai
+pdf2image
+drf-spectacular
+simplejwt
+pillow

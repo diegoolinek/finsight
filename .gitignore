@@ -1,0 +1,18 @@
+# Python / Django
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+media/
+staticfiles/
+
+.env
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+postgres_data/
