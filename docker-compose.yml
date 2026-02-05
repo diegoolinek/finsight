@@ -38,6 +38,27 @@ services:
     depends_on:
       - db
       - redis
+  celery_worker:
+    build: ./backend
+    command: celery -A core worker --loglevel=info
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=foo
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=finsight
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+    depends_on:
+      - db
+      - redis
+      - backend
 
 volumes:
   postgres_data:
