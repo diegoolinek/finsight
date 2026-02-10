@@ -3,6 +3,9 @@ from drf_spectacular.utils import extend_schema, OpenApiParameter
 from drf_spectacular.types import OpenApiTypes
 from .models import Transaction, Statement
 from .serializers import TransactionSerializer, StatementSerializer
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .services_dashboard import DashboardService
 
 class StatementViewSet(viewsets.ModelViewSet):
     serializer_class = StatementSerializer
@@ -44,3 +47,17 @@ class TransactionViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Transaction.objects.filter(user=self.request.user).order_by('-date')
+
+
+class DashboardView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    @extend_schema(
+        operation_id='get_dashboard_summary',
+        description='Retorna totais, gastos por categoria e um insight gerado por IA.',
+        responses={200: OpenApiTypes.OBJECT},
+    )
+    def get(self, request):
+        service = DashboardService(user=request.user)
+        data = service.get_financial_summary()
+        return Response(data)
