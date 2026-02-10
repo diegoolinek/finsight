@@ -76,3 +76,15 @@ O `docker-compose.yml` define valores padrao para desenvolvimento. Para customiz
 ## Observacoes
 - As rotas da API usam autenticacao do Django/DRF.
 - Arquivos enviados ficam em `backend/media/`.
+
+## Licenca (MIT)
+Consulte o arquivo LICENSE.txt.
+
+## Autor
+- Perfil: https://github.com/diegoolinek
+
+## Como contribuir
+- Abra uma issue descrevendo o problema ou sugestao.
+- Crie um fork e uma branch com um nome claro (ex.: `feature/nova-tela`).
+- Mantenha o escopo pequeno e descreva o que mudou no PR.
+- Garanta que o projeto roda localmente (backend + frontend).
