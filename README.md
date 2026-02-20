@@ -1,4 +1,4 @@
-# 💲Finsight
+# 💲Finsight (em desenvolvimento)
 
 Aplicacao web para analise de financas pessoais com IA. O backend processa extratos (PDF/imagem), gera transações e agrega dados para o dashboard. O frontend exibe resumo, gastos por categoria e insights.
 
